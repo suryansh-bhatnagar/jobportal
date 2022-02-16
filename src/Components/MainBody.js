@@ -221,14 +221,14 @@ const MainBody = () => {
                       />{" "}
                     </Grid>
 
-                    <Grid item xs={6}>
+                    <Grid item xs={12}  md={6}>
                       <Select
                         name="minGradYear"
                         label="Min Graduating Year "
                         options={{ 2023: "2023", 2022: "2022", 2021: "2021" }}
                       />{" "}
                     </Grid>
-                    <Grid item xs={6}>
+                    <Grid xs={12}  md={6}>
                       <Select
                         name="maxGradYear"
                         label="Max Graduating Year "
