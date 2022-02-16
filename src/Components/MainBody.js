@@ -120,14 +120,14 @@ const MainBody = () => {
 
                   
 
-                    <Grid item xs={6}>
+                    <Grid item xs={12} md={6}>
                       <Select
                         name="minExp"
                         label="Select Minimum Experiance"
                         options={{ 0: "0", 1: "1", "2 or Above": "2 or Above" }}
                       />{" "}
                     </Grid>
-                    <Grid item xs={6}>
+                    <Grid item xs={12} md={6}>
                       <Select
                         name="maxExp"
                         label="Select Maximum Experiance"
@@ -195,7 +195,7 @@ const MainBody = () => {
                         )}
                       </FieldArray>
                     </Grid>
-                    <Grid item xs={12}>
+                    <Grid item xs={12} md={6}>
                       <Typography
                         className={classes.typoColor}
                         variant="h4"
@@ -205,7 +205,7 @@ const MainBody = () => {
                         Targeting
                       </Typography>
                     </Grid>
-                    <Grid item xs={6}>
+                    <Grid item xs={12}>
                       <Select
                         name="category"
                         label="Select Category"
@@ -213,7 +213,7 @@ const MainBody = () => {
                       />{" "}
                     </Grid>
 
-                    <Grid item xs={6}>
+                    <Grid item xs={12} md={6}>
                       <Select
                         name="funcArea"
                         label="Select Functional Area "
