@@ -12,7 +12,7 @@ import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import { makeStyles } from '@material-ui/core';
 
-const pages = ['Home', 'About'];
+const pages = ['Home'];
 
 const useStyles = makeStyles({
   btnStyle:
