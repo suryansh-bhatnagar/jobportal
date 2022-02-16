@@ -195,7 +195,7 @@ const MainBody = () => {
                         )}
                       </FieldArray>
                     </Grid>
-                    <Grid item xs={12} md={6}>
+                    <Grid item xs={12}>
                       <Typography
                         className={classes.typoColor}
                         variant="h4"
@@ -205,12 +205,12 @@ const MainBody = () => {
                         Targeting
                       </Typography>
                     </Grid>
-                    <Grid item xs={12}>
+                    <Grid item xs={12} md={6}>
                       <Select
                         name="category"
                         label="Select Category"
                         options={categoryOptions}
-                      />{" "}
+                      />
                     </Grid>
 
                     <Grid item xs={12} md={6}>
@@ -218,7 +218,7 @@ const MainBody = () => {
                         name="funcArea"
                         label="Select Functional Area "
                         options={skill}
-                      />{" "}
+                      />
                     </Grid>
 
                     <Grid item xs={12}  md={6}>
@@ -226,14 +226,14 @@ const MainBody = () => {
                         name="minGradYear"
                         label="Min Graduating Year "
                         options={{ 2023: "2023", 2022: "2022", 2021: "2021" }}
-                      />{" "}
+                      />
                     </Grid>
-                    <Grid xs={12}  md={6}>
+                    <Grid item xs={12}  md={6}>
                       <Select
                         name="maxGradYear"
                         label="Max Graduating Year "
                         options={{ 2015: "2015", 2014: "2014", 2013: "2013" }}
-                      />{" "}
+                      />
                     </Grid>
 
                     <Grid container spacing={2} item xs={12}>
@@ -289,7 +289,7 @@ const MainBody = () => {
                     <Grid item xs={12}>
                       <SubmitButton>Post Job</SubmitButton>
                     </Grid>
-                    <Grid item xs={4}>
+                    <Grid item xs={6}>
                     {/* Displaying the alert after submitting the form */}
                       <Alertitem alert={alert} />
                      
