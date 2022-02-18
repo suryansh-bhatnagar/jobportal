@@ -1,15 +1,15 @@
 import React, { useContext , useState } from "react";
-import { Formik, Form, FieldArray, Field } from "formik";
+import { Formik, Form, } from "formik";
 import * as Yup from "yup";
 import { makeStyles } from "@material-ui/core/styles";
-import { Container, Grid, Typography, Button ,TextField} from "@material-ui/core";
+import { Container, Grid, Typography,} from "@material-ui/core";
 import Textfield from "./Textfield";
 import SubmitButton from "./Button";
 import Alertitem from "./Alertitem";
 import Select from "./Select";
-import DeleteIcon from '@mui/icons-material/Delete';
 import categoryOptions from "./Data/category.json";
 import skillContext from "../Context/skillContext";
+import TagsInput from "./Tagfield";
 
 // Creating custom styles
 const useStyles = makeStyles((theme) => ({
@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
 //Declaring initial values
 var INITIAL_FORM_STATE = {
   title: "",
-  location: [],
+  location: "",
   minExp: "",
   maxExp: "",
   description: "",
@@ -34,7 +34,7 @@ var INITIAL_FORM_STATE = {
   funcArea: "",
   minGradYear: "",
   maxGradYear: "",
-  tags: [],
+  tags: "",
 };
 // Adding validation
 const FORM_VALIDATION = Yup.object().shape({
@@ -47,7 +47,7 @@ const FORM_VALIDATION = Yup.object().shape({
   funcArea: Yup.string().required("Required"),
   minGradYear: Yup.number().required("Required"),
   maxGradYear: Yup.number().required("Required"),
-  tags: Yup.array(),
+  tags: Yup.array().required('Required')
 });
 
 const MainBody = () => {
@@ -64,7 +64,7 @@ const MainBody = () => {
   };
   // Using skill context to set options in the skill dropdown menu based on selected category 
   const context = useContext(skillContext);
-  const { skill } = context;
+  const { skill  } = context;
   const classes = useStyles();
   return (
     <Grid container>
@@ -143,57 +143,8 @@ const MainBody = () => {
                         helperText="Describe the role and responsibilities ,skill required for the job and help the candidates understand the role better"
                       />
                     </Grid>
-                    <Grid container spacing={2} item xs={12}>
-                      <FieldArray name="location">
-                        {(fieldArrayProps) => (
-                          <>
-                            <Grid item xs={12}>
-                              <div style={{ margin: "12px 0px" }}>
-                                <Button
-                                  type="button"
-                                  color="primary"
-                                  variant="contained"
-                                  onClick={() => fieldArrayProps.push("")}
-                                >
-                                  Add location
-                                </Button>
-                              </div>
-                            </Grid>
-                            {/* Mapping through every item of location array */}
-                            {formikProps.values.location.map((loca,index) => (
-                              <Field name={`location.${index}`} key={index}>
-                                {(fieldProps) => (
-                                  <>
-                                    <Grid item xs={4}>
-                                      <TextField
-                                        label="Add Location"
-                                        variant="outlined"
-                                        {...fieldProps.field}
-                                      />
-                                      <div style={{ margin: "5px 0px" }}>
-                                        <Button
-                                          type="button"
-                                          size="large"
-                                          color="secondary"
-                                        
-                                          endIcon={<DeleteIcon />}
-                                          onClick={() =>
-                                            fieldArrayProps.remove(index)
-                                          }
-                                        >
-                                      
-                                         
-                                        </Button>
-                                      
-                                      </div>
-                                    </Grid>
-                                  </>
-                                )}
-                              </Field>
-                            ))}
-                          </>
-                        )}
-                      </FieldArray>
+                    <Grid item xs={12}>
+                     <TagsInput name= 'location' setFieldValue={formikProps.setFieldValue} placeholder= 'Add Location'/>
                     </Grid>
                     <Grid item xs={12}>
                       <Typography
@@ -236,56 +187,11 @@ const MainBody = () => {
                       />
                     </Grid>
 
-                    <Grid container spacing={2} item xs={12}>
-                      <FieldArray name="tags">
-                        {(fieldArrayProps) => (
-                          <>
-                            <Grid item xs={12}>
-                              <div style={{ margin: "12px 0px" }}>
-                                <Button
-                                  type="button"
-                                  color="primary"
-                                  variant="contained"
-                                  onClick={() => fieldArrayProps.push("")}
-                                >
-                                  Add Tag
-                                </Button>
-                              </div>
-                            </Grid>
-                            {/* Mapping through every item of tags array  */}
-                            {formikProps.values.tags.map((tag, index) => (
-                              <Field name={`tags.${index}`} key={index}>
-                                {(fieldProps) => (
-                                  <>
-                                    <Grid item xs={4}>
-                                      <TextField
-                                       variant="outlined"
-                                      label="Add tag"
-                                        {...fieldProps.field}
-                                      />
-                                      <div style={{ margin: "5px 0px" }}>
-                                        <Button
-                                          type="button"
-                                          size="large"
-                                          color="secondary"
-                                          endIcon={<DeleteIcon />}
-                                          onClick={() =>
-                                            fieldArrayProps.remove(index)
-                                          }
-                                        >
-                                        
-                                        </Button>
-                                      </div>
-                                    </Grid>
-                                  </>
-                                )}
-                              </Field>
-                            ))}
-                          </>
-                        )}
-                      </FieldArray>
+                   
+                    
+                    <Grid item xs={12}>
+                     <TagsInput name= 'tags' setFieldValue={formikProps.setFieldValue} placeholder= 'Add Tags'/>
                     </Grid>
-
                     <Grid item xs={12}>
                       <SubmitButton>Post Job</SubmitButton>
                     </Grid>
