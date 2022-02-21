@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/jobportal/static/css/main.b403ca42.css",
-    "main.js": "/jobportal/static/js/main.fad6a612.js",
+    "main.js": "/jobportal/static/js/main.251a1cd6.js",
     "index.html": "/jobportal/index.html",
     "main.b403ca42.css.map": "/jobportal/static/css/main.b403ca42.css.map",
-    "main.fad6a612.js.map": "/jobportal/static/js/main.fad6a612.js.map"
+    "main.251a1cd6.js.map": "/jobportal/static/js/main.251a1cd6.js.map"
   },
   "entrypoints": [
     "static/css/main.b403ca42.css",
-    "static/js/main.fad6a612.js"
+    "static/js/main.251a1cd6.js"
   ]
 }
